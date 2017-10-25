@@ -36,6 +36,16 @@
             android:label="@string/title_activity_appbar_layout_with_tabs"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
+        <activity
+            android:name=".CollapsingToolbarLayout"
+            android:label="@string/title_activity_collapsing_toolbar_layout"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
+            android:name=".CollapsingToolbarWithTabs"
+            android:label="@string/title_activity_collapsing_toolbar_with_tabs"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
     </application>
 
 </manifest>

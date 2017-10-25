@@ -24,9 +24,29 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/appbar_layout_with_tabs"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/collapsing_toolbar"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/normal_appbarlayout"/>
+
+    <Button
+        android:id="@+id/collapsing_toolbar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/collapsing_toolbar"
+        app:layout_constraintBottom_toTopOf="@+id/collapsing_toolbar_with_tabs"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appbarlayout_with_tabs"/>
+
+    <Button
+        android:id="@+id/collapsing_toolbar_with_tabs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/collapsing_toolbar_with_tabs"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/collapsing_toolbar"/>
 
 </android.support.constraint.ConstraintLayout>
