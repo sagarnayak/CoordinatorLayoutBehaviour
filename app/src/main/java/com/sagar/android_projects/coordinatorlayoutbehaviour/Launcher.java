@@ -13,6 +13,7 @@ public class Launcher extends AppCompatActivity {
     Button buttonAppbarLayoutwithTabs;
     Button buttonCollapsingToolbar;
     Button buttonCollapsingToolbarWitTabs;
+    Button buttonCoordinatorBehavior;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +26,7 @@ public class Launcher extends AppCompatActivity {
         buttonAppbarLayoutwithTabs = (Button) findViewById(R.id.appbarlayout_with_tabs);
         buttonCollapsingToolbar = (Button) findViewById(R.id.collapsing_toolbar);
         buttonCollapsingToolbarWitTabs = (Button) findViewById(R.id.collapsing_toolbar_with_tabs);
+        buttonCoordinatorBehavior = (Button) findViewById(R.id.coordinator_layout_behavior);
 
         buttonNormalAppbarLayout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,6 +53,13 @@ public class Launcher extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(Launcher.this, CollapsingToolbarWithTabs.class));
+            }
+        });
+
+        buttonCoordinatorBehavior.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Launcher.this, CoordinatorLayoutBehavior.class));
             }
         });
     }

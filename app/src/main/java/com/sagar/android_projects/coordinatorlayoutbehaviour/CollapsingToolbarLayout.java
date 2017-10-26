@@ -8,6 +8,8 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 
+import com.sagar.android_projects.coordinatorlayoutbehaviour.adapter.Adapter;
+
 public class CollapsingToolbarLayout extends AppCompatActivity {
 
     RecyclerView recyclerView;

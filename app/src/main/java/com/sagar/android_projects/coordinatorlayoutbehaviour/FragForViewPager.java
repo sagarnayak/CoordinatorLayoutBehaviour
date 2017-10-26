@@ -9,6 +9,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.sagar.android_projects.coordinatorlayoutbehaviour.adapter.Adapter;
+
 
 public class FragForViewPager extends Fragment {
 

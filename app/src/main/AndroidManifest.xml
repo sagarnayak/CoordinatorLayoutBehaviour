@@ -41,6 +41,11 @@
             android:label="@string/title_activity_collapsing_toolbar_with_tabs"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
+        <activity
+            android:name=".CoordinatorLayoutBehavior"
+            android:label="@string/title_activity_coordinator_layout_behavior"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
     </application>
 
 </manifest>

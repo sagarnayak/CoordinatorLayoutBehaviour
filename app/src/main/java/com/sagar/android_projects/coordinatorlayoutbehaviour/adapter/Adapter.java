@@ -1,9 +1,11 @@
-package com.sagar.android_projects.coordinatorlayoutbehaviour;
+package com.sagar.android_projects.coordinatorlayoutbehaviour.adapter;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.sagar.android_projects.coordinatorlayoutbehaviour.R;
 
 /**
  * Created by sagar on 10/25/2017.
