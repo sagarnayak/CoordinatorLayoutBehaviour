@@ -12,8 +12,15 @@ import android.support.v7.widget.Toolbar;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * created by SAGAR KUMAR NAYAK on 26 OCT 2017.
+ * this activity demonstrate a toolbar with a tab layout. the toolbar is using a scroll flag
+ * enter always. and the toolbar is not using any scroll flag. therefore the toolbar hides on every
+ * down scroll but not the tab layout.
+ */
 public class AppbarLayoutWithTabs extends AppCompatActivity {
 
+    //views
     TabLayout tabLayout;
     ViewPager viewPager;
 
@@ -24,13 +31,23 @@ public class AppbarLayoutWithTabs extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        ////////////////////////////////////////////////////////////////////////////////////////////
+        //view binding
         tabLayout = (TabLayout) findViewById(R.id.tablayout_appbar_layout_with_tabs);
         viewPager = (ViewPager) findViewById(R.id.viewpager_appbar_layout_with_tabs);
+        ////////////////////////////////////////////////////////////////////////////////////////////
 
+        /*
+        set up the view pager and tab layout.
+         */
         setupViewPager(viewPager);
         tabLayout.setupWithViewPager(viewPager);
     }
 
+    /**
+     * method to setup the view pager and tab layout.
+     * @param viewPager view pager id
+     */
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
         adapter.addFragment(new FragForViewPager(), "ONE");
@@ -39,6 +56,9 @@ public class AppbarLayoutWithTabs extends AppCompatActivity {
         viewPager.setAdapter(adapter);
     }
 
+    /**
+     * view pager adapter.
+     */
     private class ViewPagerAdapter extends FragmentPagerAdapter {
         private final List<Fragment> mFragmentList = new ArrayList<>();
         private final List<String> mFragmentTitleList = new ArrayList<>();
