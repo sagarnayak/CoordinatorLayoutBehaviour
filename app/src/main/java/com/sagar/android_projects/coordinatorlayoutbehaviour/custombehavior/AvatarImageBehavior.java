@@ -10,6 +10,12 @@ import android.view.View;
 
 import com.sagar.android_projects.coordinatorlayoutbehaviour.R;
 
+/**
+ * created by SAGAR KUMAR NAYAK on 26 OCT 2017.
+ * this is the custom behaviour class that extends the coordinatorlayout behavior.
+ * it is used in the imageview for the custom transformation to take place when the appbar is
+ * transformed by scrolling.
+ */
 @SuppressWarnings("unused")
 public class AvatarImageBehavior extends CoordinatorLayout.Behavior<AppCompatImageView> {
 

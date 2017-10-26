@@ -14,8 +14,19 @@ import android.widget.TextView;
 
 import com.sagar.android_projects.coordinatorlayoutbehaviour.adapter.Adapter;
 
+/**
+ * created by SAGAR KUMAR NAYAK on 26 OCT 2017.
+ * this is the activity to demonstrate the use of custom behavior in coordinator layout.
+ * it will use a image view to transform according to the changes in the appbar. in expanded state
+ * the picture will be shown in larger imageview. but as the appbar is collapsed the image will transformed
+ * to smaller size to fit into the toolbar.
+ * the same is used for some text. these text are in the collapsing toolbar and it will only show in the
+ * expanded state.
+ * the toolbar text is hidden in collapsed state and it wil be shown when the toolbar is fully collapsed.
+ */
 public class CoordinatorLayoutBehavior extends AppCompatActivity implements AppBarLayout.OnOffsetChangedListener{
 
+    //views
     FloatingActionButton fab;
     RecyclerView recyclerView;
     private LinearLayout mTitleContainer;
@@ -23,10 +34,12 @@ public class CoordinatorLayoutBehavior extends AppCompatActivity implements AppB
     private AppBarLayout mAppBarLayout;
     private Toolbar mToolbar;
 
+    //constants for view transformation
     private static final float PERCENTAGE_TO_SHOW_TITLE_AT_TOOLBAR = 0.9f;
     private static final float PERCENTAGE_TO_HIDE_TITLE_DETAILS = 0.3f;
     private static final int ALPHA_ANIMATIONS_DURATION = 200;
 
+    //boolean to keep track of changes during the appbar transformation.
     private boolean mIsTheTitleVisible = false;
     private boolean mIsTheTitleContainerVisible = true;
 
@@ -35,20 +48,32 @@ public class CoordinatorLayoutBehavior extends AppCompatActivity implements AppB
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_coordinator_layout_behavior);
 
+        ////////////////////////////////////////////////////////////////////////////////////////////
+        //view binding
         fab = (FloatingActionButton) findViewById(R.id.fab);
         recyclerView = (RecyclerView) findViewById(R.id.recyclerview_coordinator_behavior);
         mToolbar = (Toolbar) findViewById(R.id.main_toolbar);
         mTitle = (TextView) findViewById(R.id.main_textview_title);
         mTitleContainer = (LinearLayout) findViewById(R.id.main_linearlayout_title);
         mAppBarLayout = (AppBarLayout) findViewById(R.id.main_appbar);
+        ////////////////////////////////////////////////////////////////////////////////////////////
 
+        /*
+        set up the layout manager and adapter for the recyclerview
+         */
         recyclerView.setLayoutManager(new LinearLayoutManager(CoordinatorLayoutBehavior.this));
         recyclerView.setAdapter(new Adapter());
 
-
+        /*
+        set up the offset change listener for the appbar. it will be used for the alpha change animation
+        for the title in toolbar, when the appbar transformation is going on.
+         */
         mAppBarLayout.addOnOffsetChangedListener(this);
 
         mToolbar.inflateMenu(R.menu.menu_main);
+        /*
+        start the initial alpha animation. it will hide the title completely.
+         */
         startAlphaAnimation(mTitle, 0, View.INVISIBLE);
     }
 
@@ -61,6 +86,10 @@ public class CoordinatorLayoutBehavior extends AppCompatActivity implements AppB
         handleToolbarTitleVisibility(percentage);
     }
 
+    /**
+     * method to handle the alpha change animation for the toolbar title.
+     * @param percentage percentage for the alpha of the title
+     */
     private void handleToolbarTitleVisibility(float percentage) {
         if (percentage >= PERCENTAGE_TO_SHOW_TITLE_AT_TOOLBAR) {
 

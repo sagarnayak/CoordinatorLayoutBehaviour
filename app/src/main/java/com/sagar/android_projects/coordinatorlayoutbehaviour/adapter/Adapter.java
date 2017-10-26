@@ -9,8 +9,8 @@ import com.sagar.android_projects.coordinatorlayoutbehaviour.R;
 
 /**
  * Created by sagar on 10/25/2017.
+ * this is the adapter that is used to populate the recyclerview in each activity.
  */
-
 public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder>{
 
     @Override

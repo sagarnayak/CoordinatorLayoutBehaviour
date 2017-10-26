@@ -11,7 +11,10 @@ import android.view.ViewGroup;
 
 import com.sagar.android_projects.coordinatorlayoutbehaviour.adapter.Adapter;
 
-
+/**
+ * created by SAGAR KUMAR NAYAK on 26 OCT 2017.
+ * this is the fragment that is used for showing the recyclerview, in the tab layouts.
+ */
 public class FragForViewPager extends Fragment {
 
     RecyclerView recyclerView;

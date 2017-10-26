@@ -12,8 +12,15 @@ import android.support.v7.widget.Toolbar;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * created by SAGAR KUMAR NAYAK on 26 OCT 2017.
+ * this is an activity to show the use of tab layout in coordinator layout.
+ * this also uses the exit until collapsed scroll flag for the toolbar. the toolbar and tab layout,
+ * both views are shown when the appbar is fully collapsed.
+ */
 public class CollapsingToolbarWithTabs extends AppCompatActivity {
 
+    //views
     TabLayout tabLayout;
     ViewPager viewPager;
 
@@ -23,16 +30,28 @@ public class CollapsingToolbarWithTabs extends AppCompatActivity {
         setContentView(R.layout.activity_collapsing_toolbar_with_tabs);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayShowTitleEnabled(false);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayShowTitleEnabled(false);
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
 
+        ////////////////////////////////////////////////////////////////////////////////////////////
+        //view binding
         tabLayout = (TabLayout) findViewById(R.id.tablayout_collapsing_toolbar_with_tabs);
         viewPager = (ViewPager) findViewById(R.id.viewpager_collapsing_toolbar_with_tabs);
+        ////////////////////////////////////////////////////////////////////////////////////////////
 
+        /*
+        set up hte view pager and tab layout
+         */
         setupViewPager(viewPager);
         tabLayout.setupWithViewPager(viewPager);
     }
 
+    /**
+     * method to setup the view pager and tab layout.
+     * @param viewPager view pager id
+     */
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
         adapter.addFragment(new FragForViewPager(), "ONE");
@@ -41,6 +60,9 @@ public class CollapsingToolbarWithTabs extends AppCompatActivity {
         viewPager.setAdapter(adapter);
     }
 
+    /**
+     * view pager adapter.
+     */
     private class ViewPagerAdapter extends FragmentPagerAdapter {
         private final List<Fragment> mFragmentList = new ArrayList<>();
         private final List<String> mFragmentTitleList = new ArrayList<>();
