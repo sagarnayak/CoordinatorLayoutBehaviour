@@ -110,7 +110,7 @@
         android:layout_gravity="center"
         app:finalHeight="@dimen/image_final_width"
         app:finalYPosition="2dp"
-        app:layout_behavior="com.sagar.android_projects.coordinatorlayoutbehaviour.AvatarImageBehavior"
+        app:layout_behavior="com.sagar.android_projects.coordinatorlayoutbehaviour.custombehavior.AvatarImageBehavior"
         app:srcCompat="@mipmap/ic_launcher"
         app:startHeight="2dp"
         app:startToolbarPosition="2dp"

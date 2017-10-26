@@ -1,9 +1,15 @@
 package com.sagar.android_projects.coordinatorlayoutbehaviour;
 
+import android.content.res.ColorStateList;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CoordinatorLayout;
+import android.support.design.widget.FloatingActionButton;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.graphics.Palette;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -26,6 +32,8 @@ public class CollapsingToolbarLayout extends AppCompatActivity {
     RecyclerView recyclerView;
     AppBarLayout appBarLayout;
     CoordinatorLayout coordinatorLayout;
+    android.support.design.widget.CollapsingToolbarLayout collapsingToolbarLayout;
+    FloatingActionButton floatingActionButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +47,8 @@ public class CollapsingToolbarLayout extends AppCompatActivity {
         recyclerView = (RecyclerView) findViewById(R.id.recyclerview_collapsing_toolbar);
         appBarLayout = (AppBarLayout) findViewById(R.id.appbarlayout);
         coordinatorLayout = (CoordinatorLayout) findViewById(R.id.coordinatorlayout);
+        collapsingToolbarLayout = (android.support.design.widget.CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
+        floatingActionButton= (FloatingActionButton) findViewById(R.id.fab);
         ////////////////////////////////////////////////////////////////////////////////////////////
 
         /*
@@ -57,10 +67,24 @@ public class CollapsingToolbarLayout extends AppCompatActivity {
                 setAppBarOffset(200);
             }
         });
+
+        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.bg);
+        //using palette, change the color of collapsing toolbar layout
+        Palette.from(bitmap).generate(new Palette.PaletteAsyncListener() {
+            public void onGenerated(Palette palette) {
+                int mutedColor = palette.getMutedColor(ContextCompat.getColor(getApplicationContext(), R.color.colorPrimary));
+                int mutedDarkColor = palette.getDarkMutedColor(ContextCompat.getColor(getApplicationContext(), R.color.colorPrimaryDark));
+                int vibrantColor = palette.getVibrantColor(ContextCompat.getColor(getApplicationContext(), R.color.colorAccent));
+                collapsingToolbarLayout.setContentScrimColor(mutedColor);
+                collapsingToolbarLayout.setStatusBarScrimColor(mutedDarkColor);
+                floatingActionButton.setBackgroundTintList(ColorStateList.valueOf(vibrantColor));
+            }
+        });
     }
 
     /**
      * method to show the custom length of appbar instead of showing the full length appbar layout.
+     *
      * @param offsetPx offset for length
      */
     private void setAppBarOffset(int offsetPx) {
